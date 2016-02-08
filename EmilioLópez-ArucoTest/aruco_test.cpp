@@ -409,7 +409,7 @@ int main(int argc, char** argv) {
             return 0;
 
         if(TheInputVideo=="live")
-            TheVideoCapturer.open(0);
+            TheVideoCapturer.open(-1);
         else
             TheVideoCapturer.open(TheInputVideo);
         if(!TheVideoCapturer.isOpened()){
