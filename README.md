@@ -21,4 +21,6 @@ Vídeo demostración: https://www.dropbox.com/s/hinp42bs6ez294m/DSCN0043.MOV?dl=
 Prerequisitos:
     sudo apt-get install freeglut3-dev
     sudo apt-get install libxmu-dev libxi-dev
+    sudo apt-get install libqt4-dev  # necesario?
+
  
