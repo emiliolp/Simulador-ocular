@@ -77,7 +77,6 @@ void loadFaceFile(){
     //leemos otra vez el fichero para guardar los valores
     while(1){
         reso = fscanf(file,"%s",lineHeader);
-
         if (reso == EOF){
             break;
         }
@@ -367,7 +366,8 @@ void update(int value) {
     }
     
     glutPostRedisplay();
-    glutTimerFunc(25, update, 0);
+    //glutTimerFunc(25, update, 0);
+    glutTimerFunc(50, update, 0);
 }
 
 bool readArguments ( int argc,char **argv )
@@ -408,24 +408,35 @@ int main(int argc, char** argv) {
         if(readArguments(argc,argv)==false)
             return 0;
 
-        if(TheInputVideo=="live")
+        if(TheInputVideo=="live"){
+            cout << "Choosed camera live" <<endl;
             TheVideoCapturer.open(-1);
-        else
+            if(TheVideoCapturer.open(-1) != 1)
+                cout << "Video not opened" << endl;
+        }
+        else{
+            cout << "Capture image" << endl;
             TheVideoCapturer.open(TheInputVideo);
+        }
+
         if(!TheVideoCapturer.isOpened()){
             cerr<<"Could not open video"<<endl;
             return -1;
         }
 
         //read first image
+        cout << "Reading first image" << endl;
         TheVideoCapturer>>TheInputImage;
         //read camera paramters if passed
+        cout << "Reading camera parameters" << endl;
         TheCameraParams.readFromXMLFile(TheIntrinsicFile);
         TheCameraParams.resize(TheInputImage.size());
 
         //Cargamos las coordenadas de los puntos que forman la cara en el vector para después dibujarla
+        cout << "Loading face" << endl;
         loadFaceFile();
         //Cargamos las coordenadas del ojo
+        cout << "Loading eyes" << endl;
         loadEyeFile();
 
         //Initialize GLUT
@@ -435,16 +446,22 @@ int main(int argc, char** argv) {
         glutInitWindowSize(TheInputImage.size().width,TheInputImage.size().height);
     
         //Create the window
+        cout << "Create the window" << endl;
         glutCreateWindow("Aruco");
+        cout << "Rendering" << endl;
         initRendering();
     
         //Set handler functions
+        cout << "Drawing the scene" << endl;
         glutDisplayFunc(drawScene);
         glutIdleFunc( vIdle );
         glutKeyboardFunc(handleKeypress);
+        cout << "Resizing the window" << endl;
         glutReshapeFunc(handleResize);
     
-        glutTimerFunc(25, update, 0); //Add a timer
+        //glutTimerFunc(25, update, 0); //Add a timer
+        cout << "Timer: 50 ms" << endl;
+        glutTimerFunc(50, update, 0);
         TheGlWindowSize=TheInputImage.size();
     
         glutMainLoop();
