@@ -42,6 +42,11 @@ void loadFaceFile(){
     //fichero obj del que obtenemos las coordenadas de la cabeza
     file = fopen("figuras/cara.obj","r");
 
+    if(file == NULL){
+        cerr<<"Error: Can not open face file"<<endl;
+        exit(0);
+    }
+
     char lineHeader[128];
     int res = fscanf(file,"%s",lineHeader);
     while(1){
@@ -106,6 +111,12 @@ void loadFaceFile(){
 void loadEyeFile(){
     FILE *file;
      file = fopen("figuras/ojo.obj","r");
+     
+     if(file == NULL){
+        cerr<<"Error: Can not open eye file"<<endl;
+        exit(0);
+    }
+     
      char lineHeader[128];
      int res = fscanf(file,"%s",lineHeader);
      int d, vcount2=0, vncount2=0;
