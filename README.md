@@ -22,5 +22,14 @@ Prerequisitos:
     sudo apt-get install freeglut3-dev
     sudo apt-get install libxmu-dev libxi-dev
     sudo apt-get install libqt4-dev  # necesario?
+ 
+Prerequisitos librería glui:
+    Descargar la librería glui:
+    http://www.rpmseek.com/rpm-pl/libglui2c2.html?hl=com&cs=libgcc1:RE:0:0:0:0:2420
+    http://www.rpmseek.com/rpm-pl/libglui-dev.html?hl=com&cx=0::
+    Instalamos:
+    sudo dpkg -i libglui2c2_2.36-4_amd64.deb
+    sudo dpkg -i libglui-dev_2.36-4_amd64.deb
+
 
  
