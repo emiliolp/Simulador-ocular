@@ -16,17 +16,7 @@ Instrucciones
 - Ejemplo de ejecución (cambiar el nombre de fichero .yml):
 	./aruco_test live camera3.yml 1
 
-Para indicar el último parámetro (posición de la cámara) se sigue el siguient criterio:
-
-8----------------1----------------2
-|	           		  |
-|				  |
-|				  |
-7				  3
-|				  |
-|				  |
-|				  |	
-6----------------5----------------4
+El parámetro 1 se refiere a que la cámara se encuentra en la parte superior central de la pantalla, el resto de posiciones se indican mediante números del 2 al 8 en el sentido de las agujas del reloj.
 
 Prerequisitos:
     sudo apt-get install freeglut3-dev
