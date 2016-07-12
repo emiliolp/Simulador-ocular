@@ -16,7 +16,17 @@ Instrucciones
 - Ejemplo de ejecución (cambiar el nombre de fichero .yml):
 	./aruco_test live camera3.yml 1
 
-Vídeo demostración: https://www.dropbox.com/s/hinp42bs6ez294m/DSCN0043.MOV?dl=0
+Para indicar el último parámetro (posición de la cámara) se sigue el siguient criterio:
+
+8----------------1----------------2
+|	           		  |
+|				  |
+|				  |
+7				  3
+|				  |
+|				  |
+|				  |	
+6----------------5----------------4
 
 Prerequisitos:
     sudo apt-get install freeglut3-dev
