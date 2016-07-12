@@ -5,21 +5,21 @@
 #include "Point3D.hpp"
 #include "TypeV.hpp"
 #include "TypeF.hpp"
-#ifdef __APPLE__
-#include <OpenGL/OpenGL.h>
-#include <GLUT/glut.h>
-#else
+#include <string.h>
 #include <GL/glut.h>
-#endif
+#include <GL/glui.h>
+#include <stdio.h>
+#include <X11/Xlib.h>
+#include <stdlib.h>
 
 using namespace cv;
 using namespace aruco;
 using namespace std;
 using namespace aruco_test;
 
+int   main_window;
 string TheInputVideo;
 string TheIntrinsicFile;    //fichero .yml
-float TheMarkerSize=-1;     //tamaño del marcador
 VideoCapture TheVideoCapturer;
 vector<Marker> TheMarkers;      //vector de marcadores encontrados
 TypeV *VvFace,*VvEye,*VnFace,*VnEye;    //vectores con los vértices y la normal de las figuras
@@ -29,12 +29,14 @@ CameraParameters TheCameraParams;
 bool TheCaptureFlag=true;
 MarkerDetector PPDetector;
 Size TheGlWindowSize;
-Point3D MarkerPx, MarkerCm, MarkerEye1,MarkerEye2;
-Point2f MarkerC;
-float rotx1, roty1, rotz1,rotz2, rotx2,roty2;
-float _angle = -70.0f;
+Point3D MarkerPx;
+float TheMarkerSize=-1, rotx1, roty1, rotz1,rotz2, rotx2,roty2;
+float _angle = -70.0f,vX,vY,vZ,width,height;
+int econt=0, fcount1=0,fcount2=0, CameraPosition;
+GLUI *glui;
+Marker Marker1;
+char *cadena="OK", buffer[200];
 
-int fcount1=0,fcount2=0;
 
 void loadFaceFile(){
     FILE *file;
@@ -49,6 +51,7 @@ void loadFaceFile(){
 
     char lineHeader[128];
     int res = fscanf(file,"%s",lineHeader);
+    //cout<<"lineHeader: "<<lineHeader<<endl;
     while(1){
         //leemos el fichero línea por línea hasta que llega al final
         res=fscanf(file,"%s",lineHeader);
@@ -81,7 +84,9 @@ void loadFaceFile(){
 
     //leemos otra vez el fichero para guardar los valores
     while(1){
+
         reso = fscanf(file,"%s",lineHeader);
+
         if (reso == EOF){
             break;
         }
@@ -104,22 +109,29 @@ void loadFaceFile(){
             j++;
         }
     }
+
     fclose(file);
+
 }
 
 //Almacenamos las coordenadas del fichero del ojo en diversos vectores de igual forma que en la función anterior
 void loadEyeFile(){
+
     FILE *file;
+    char lineHeader[128];
+    int d, vcount2=0, vncount2=0,x=0,j=0,k=0,posicion2,a2,b2,q2,d2,e2,h2,g2;
+    int pa,pb,pc,pan,pbn,pcn;
+    float px,py,pz;
+
      file = fopen("figuras/ojo.obj","r");
-     
+
      if(file == NULL){
         cerr<<"Error: Can not open eye file"<<endl;
         exit(0);
     }
-     
-     char lineHeader[128];
+    
      int res = fscanf(file,"%s",lineHeader);
-     int d, vcount2=0, vncount2=0;
+     
      while(1){
         res=fscanf(file,"%s",lineHeader);
         if(res == EOF){
@@ -136,6 +148,7 @@ void loadEyeFile(){
             vncount2++;
         }
      }
+
      fclose(file);
 
      VvEye = new TypeV[vcount2];
@@ -145,9 +158,6 @@ void loadEyeFile(){
      file = fopen("figuras/ojo.obj","r");
 
      res = fscanf(file,"%s",lineHeader);
-     int x=0,j=0,k=0,posicion2,a2,b2,q2,d2,e2,h2,g2;
-     float px,py,pz;
-     int pa,pb,pc,pan,pbn,pcn;
      
      while(1){
         res = fscanf(file,"%s",lineHeader);
@@ -174,38 +184,12 @@ void loadEyeFile(){
             j++;
         }
      }
+
     fclose(file);
-}
 
-//Llamada cuando se presiona una tecla
-void handleKeypress(unsigned char key, int x, int y) {
-    switch (key) {
-        case 27: //Escape
-            exit(0);
-    }
-}
+ }
 
-//Inicializamos el renderizado
-void initRendering() {
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_LIGHTING); //Activamos la luz
-    glEnable(GL_LIGHT0); //Activamos luz #0
-    glEnable(GL_LIGHT1); //Activamos luz #1
-    glEnable(GL_NORMALIZE); //Se normalizan automáticamente las normales
-    //glShadeModel(GL_SMOOTH); //Activamos sombreado liso
-}
-
-//Llamada cuando se redimensiona la ventana
-void handleResize(int w, int h) {
-    glViewport(0, 0, w, h);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    //glOrtho(-5, 5, -5, 5, -5, 5);
-    gluPerspective(45.0, (double)w / (double)h, 1.0, 200.0);
-}
-
-//Aplicamos luces
+ //Aplicamos luces
 void drawLight(){
     //Luz ambiente
     GLfloat ambientColor[] = {0.2f, 0.2f, 0.2f, 1.0f}; //Color (0.2, 0.2, 0.2)
@@ -271,69 +255,173 @@ void drawShape(TypeF ArrayF[], TypeV ArrayV[], TypeV ArrayVn[], int count,int sh
     }
 }
 
+void detectMarker(){
+
+    Point2f maux;
+    float v[50];
+    float menor;
+    int indice;
+    Point2f TheMarkerAux;
+    Point2f MarkerAnt, PointMarkerAnt;
+
+    if(TheMarkers.size() != 0){
+        PointMarkerAnt = Marker1.getCenter();
+
+        if(isnan(PointMarkerAnt.x)){         
+            if(TheMarkers.size() == 1){
+                Marker1 = TheMarkers[0];
+                TheMarkerAux = Marker1.getCenter();
+                cadena="OK";
+            }
+            else{
+
+                cadena = "Error: varios tags detectados";
+            }
+        }
+        else{
+
+            if(TheMarkers.size() == 1){
+
+                Marker1 = TheMarkers[0];
+                cadena="OK";
+                econt = 0;
+
+            }
+
+            else if(TheMarkers.size() > 1){
+
+                econt++;
+                cout<<"econt: "<<econt<<endl;
+
+                if(econt >= 20){
+
+                    cadena = "Error: varios tags detectados";;
+
+                }
+
+                else{
+
+                    for (unsigned int m=0;m<TheMarkerSize;m++){
+
+                        TheMarkerAux = TheMarkers[m].getCenter();
+                        maux.x = PointMarkerAnt.x - TheMarkerAux.x;
+                        maux.y = PointMarkerAnt.y - TheMarkerAux.y;
+                        v[m] = maux.x + maux.y;
+
+                    }
+
+                    menor = v[0];
+                    indice = 0;
+
+                    for(unsigned int m=0; m<TheMarkerSize; m++){
+
+                        if(v[m] < menor){
+                            menor = v[m];
+                            indice = m;
+                        }
+                    }
+                
+                    Marker1 = TheMarkers[indice];
+
+                }
+            }
+        }
+    }
+
+    else
+        econt = 0;
+
+}
+
 void calculateEyesPosition(){
-    for (unsigned int m=0;m<TheMarkers.size();m++)
-    {
+
+    Point3D MarkerCm, MarkerEye1, MarkerEye2;
+    Point2f MarkerC;
+    
         //Obtenemos el centro del marcador
-        MarkerC = TheMarkers[m].getCenter();
+        MarkerC = Marker1.getCenter();
         //Guardamos su valor en píxeles, sabiendo que el punto 0,0 se encuentra en la esquina superior izquierda de la pantalla
         MarkerPx.readPoint3D(MarkerC.x,MarkerC.y);
         //Obtenemos la coordenada z, su valor está en cm
-        MarkerPx.obtenerz(TheMarkers[m].getPerimeter());
-        //Convertimos la coordenada z a cm
+        MarkerPx.obtenerz(Marker1.getPerimeter());
+        //Convertimos la coordenada z a px
         MarkerPx.convertToPixel();
         //Modificamos los valores de las coordenadas del punto, el punto 0,0 se sitúa ahora en el centro de la pantalla
-        MarkerPx.translateCentre();
+        MarkerPx.translateCentre(CameraPosition);
         //Convertimos las coordenadas del punto a cm, este objeto solo se utilizará para visualizar el punto en la pantalla
         //La conversión se realiza sabiendo que el punto (320, 240)px es equivalente a (0.7179, 0.5384)cm
-        MarkerCm.setX((MarkerPx.getX() * 0.7179)/320);
+        MarkerCm.setX((MarkerPx.getX() * 0.9886)/320);
         MarkerCm.setY((MarkerPx.getY() * 0.5384)/240);
 
         //Aplicamos el desplazamiento del ojo izquierdo
-        float desx2 = MarkerPx.getX()+((320*0.145f)/0.7179f);
-        //float desy2 = MarkerPx.getY()-((240*0.165f)/0.5384f);
-        float desy2 = MarkerPx.getY();
+        float desx2 = MarkerPx.getX()+((320*0.145)/0.9886); //pasamos a píxeles
+        float desy2 = MarkerPx.getY()-((240*0.165)/0.5384);
 
         MarkerEye2.readPoint3D(desx2, desy2);
         MarkerEye2.setZ(MarkerPx.getZ());
         //Calculamos la rotación del ojo izquierdo en el eje z
+        //Para simular mayor amplitud en los movimientos, ampliar el ángulo de rotación x e y
+        //Una amplitud de 180º en el movimiento de los ojos supondría un rango de rotación de -90º a 180º
+        //En una persona humana, la amplitud del campo de visión puede ser de 180º, pero el ojo no puede rotar 180º
+        //He supuesto una rotación total de 50º (-25º a +25º). El ángulo máximo de rotación al hacer pruebas es 15º, así que se le aplicará un coeficiente de 1,667 para llegar a 25.
         rotz2 = MarkerEye2.turnAxisZ();
         //Rotación del ojo en el eje x
-        rotx2 = MarkerEye2.turnAxisX();
+        rotx2 = MarkerEye2.turnAxisX() * 1.667;
         //Rotación del ojo en el eje y
-        roty2 = MarkerEye2.turnAxisY();
+        roty2 = MarkerEye2.turnAxisY() * 1.667;
 
         //Desplazamiento del ojo derecho
-        float desx1 = MarkerPx.getX()-((320*0.145f)/0.7179f);
-        //float desy1 = MarkerPx.getY()-((240*0.165f)/0.5384f);
-        float desy1 = MarkerPx.getY();
+        float desx1 = MarkerPx.getX()-((320*0.145)/0.9886);
+        float desy1 = MarkerPx.getY()-((240*0.165)/0.5384);
+
         MarkerEye1.readPoint3D(desx1,desy1);
         MarkerEye1.setZ(MarkerPx.getZ());
         //Rotación ejes z, x e y
         rotz1 = MarkerEye1.turnAxisZ();
-        rotx1 = MarkerEye1.turnAxisX();
-        roty1 = MarkerEye1.turnAxisY();
-    }
+        rotx1 = MarkerEye1.turnAxisX() * 1.667;
+        roty1 = MarkerEye1.turnAxisY() * 1.667;
 }
 
 //Dibuja la escena 3D
 void drawScene() {
+
+    //Inicializamos el renderizado
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING); //Activamos la luz
+    glEnable(GL_LIGHT0); //Activamos luz #0
+    glEnable(GL_LIGHT1); //Activamos luz #1
+    glEnable(GL_NORMALIZE); //Se normalizan automáticamente las normales
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glMatrixMode(GL_MODELVIEW);
 
-    calculateEyesPosition();
+    detectMarker();
+
+    Point2f MarkerDetect = Marker1.getCenter();
+
+    if (not isnan(MarkerDetect.x)){
+
+        calculateEyesPosition();
+
+    }
     
     //Dibuja en la pantalla el puntero que muestra la posición del centro del marcador
-    glLoadIdentity();
-    glTranslatef(0.0f, 0.0f, -1.0f);
-    //glTranslatef(0.0f, 0.0f, -1.3f);
-    drawLight();
-    glColor3f(1,1,1);   
-    glPointSize(10.0);
-    glBegin(GL_POINTS);
-        glVertex3f(-MarkerCm.getX(),MarkerCm.getY(),0);
-    glEnd();
+    // glLoadIdentity();
+    // ////glTranslatef(0.0f, 0.0f, -1.0f);
+    // ////glTranslatef(0.0f, 0.0f, 0.0f);
+    // glTranslatef(0.0f, 0.0f, -1.3f);
+    // drawLight();
+    // glColor3f(1,0,1);   
+    // glPointSize(10.0);
+    // glBegin(GL_POINTS);
+    //     glVertex3f(-MarkerCm.getX(),MarkerCm.getY(),0);
+    //     //glVertex3f(0.117,0.133,0);
+    //     //glVertex3f(0,0,0);
+    //     //glVertex3f(0.145,0.165,0);
+    //     //glVertex3f(0.9886,0.5384,0);
+    // glEnd();
 
     //Dibuja en la pantalla la cara
     glLoadIdentity();
@@ -352,6 +440,7 @@ void drawScene() {
     glRotatef(rotx2,1,0,0);
     glRotatef(roty2,0,1,0);
     glRotatef(rotz2,0,0,1);
+    //glRotatef(-25,1,0,0);
     //Dibuja la forma
     drawShape(VfEye,VvEye,VnEye,fcount2,2);
 
@@ -364,6 +453,9 @@ void drawScene() {
     glRotatef(rotx1,1,0,0);
     glRotatef(roty1,0,1,0);
     glRotatef(rotz1,0,0,1);
+    cout<<"rotx1: "<<rotx1<<endl;
+    cout<<"roty1: "<<roty1<<endl;
+    cout<<"rotz1: "<<rotz1<<endl;
     //Dibuja la forma
     drawShape(VfEye,VvEye,VnEye,fcount2,2);
 
@@ -371,13 +463,13 @@ void drawScene() {
 }
 
 void update(int value) {
+
     _angle += 1.5f;
     if (_angle > 360) {
         _angle -= 360;
     }
     
     glutPostRedisplay();
-    //glutTimerFunc(25, update, 0);
     glutTimerFunc(50, update, 0);
 }
 
@@ -385,13 +477,23 @@ bool readArguments ( int argc,char **argv )
 {
     if (argc!=4) {
         cerr<<"Invalid number of arguments"<<endl;
-        cerr<<"Usage: (in.avi|live)  intrinsics.yml   size "<<endl;
+        cerr<<"Usage: (in.avi|live)  intrinsics.yml   size   Posición cámara"<<endl;
         return false;
     }
-    TheInputVideo=argv[1];
-    TheIntrinsicFile=argv[2];
-    TheMarkerSize=atof(argv[3]);
+    TheInputVideo    = argv[1];
+    TheIntrinsicFile = argv[2];
+    CameraPosition   = atoi(argv[3]);
     return true;
+}
+
+//Inicializamos el renderizado
+void initRendering() {
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING); //Activamos la luz
+    glEnable(GL_LIGHT0); //Activamos luz #0
+    glEnable(GL_LIGHT1); //Activamos luz #1
+    glEnable(GL_NORMALIZE); //Se normalizan automáticamente las normales
 }
 
 void vIdle()
@@ -408,14 +510,36 @@ void vIdle()
         //detect markers
         PPDetector.detect(TheUndInputImage,TheMarkers, TheCameraParams.CameraMatrix,Mat(),TheMarkerSize,false);
         //resize the image to the size of the GL window
-        //cv::resize(TheUndInputImage,TheResizedImage,TheGlWindowSize);
+        cv::resize(TheUndInputImage,TheResizedImage,TheGlWindowSize);
     }
+
+    if ( glutGetWindow() != main_window ){
+    glutSetWindow(main_window);
+    }
+
     glutPostRedisplay();
+
+    vX = -MarkerPx.getX()*(width/640);
+    vY = MarkerPx.getY()*(height/480);
+    vZ = MarkerPx.getZ();
+    strcpy(buffer,cadena);
+    glui->sync_live();
 }
 
+//Llamada cuando se redimensiona la ventana
+void handleResize(int w, int h) {
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45.0, (double)w / (double)h, 1.0, 200.0);
+}
 
-int main(int argc, char** argv) {
-    try{
+/**************************************** main() ********************/
+
+int main(int argc, char* argv[])
+{
+    GLUI_EditText   *edittext;
+  try{
         if(readArguments(argc,argv)==false)
             return 0;
 
@@ -450,38 +574,85 @@ int main(int argc, char** argv) {
         cout << "Loading eyes" << endl;
         loadEyeFile();
 
-        //Initialize GLUT
-        glutInit(&argc, argv);
-        glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-        //glutInitWindowSize(640, 480);
-        glutInitWindowSize(TheInputImage.size().width,TheInputImage.size().height);
-    
-        //Create the window
-        cout << "Create the window" << endl;
-        glutCreateWindow("Aruco");
-        cout << "Rendering" << endl;
-        initRendering();
-    
-        //Set handler functions
-        cout << "Drawing the scene" << endl;
-        glutDisplayFunc(drawScene);
-        glutIdleFunc( vIdle );
-        glutKeyboardFunc(handleKeypress);
-        cout << "Resizing the window" << endl;
-        glutReshapeFunc(handleResize);
-    
-        //glutTimerFunc(25, update, 0); //Add a timer
-        cout << "Timer: 50 ms" << endl;
-        glutTimerFunc(50, update, 0);
-        TheGlWindowSize=TheInputImage.size();
-    
-        glutMainLoop();
-        return 0;
-    }
+        //Obtenemos resolución de pantalla
+        Display * pantalla;
+        pantalla = XOpenDisplay ( 0 );
+        width  = XDisplayWidth  ( pantalla, DefaultScreen ( pantalla ) );
+        height = XDisplayHeight ( pantalla, DefaultScreen ( pantalla ) );
+        XCloseDisplay ( pantalla );
+
+  /****************************************/
+  /*   Initialize GLUT and create window  */
+  /****************************************/
+  glutInit(&argc, argv);
+  glutInitDisplayMode( GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH );
+  glutInitWindowSize( width,height );
+  main_window = glutCreateWindow( "Simulador motilidad ocular" );
+  glutDisplayFunc(drawScene);
+  glutReshapeFunc(handleResize);
+
+  cout << "Drawing the scene" << endl;
+
+  /****************************************/
+  /*          Enable z-buffering          */
+  /****************************************/
+
+  glEnable(GL_DEPTH_TEST);
+
+  /****************************************/
+  /*         Here's the GLUI code         */
+  /****************************************/
+  glui = GLUI_Master.create_glui_subwindow(main_window, GLUI_SUBWINDOW_BOTTOM);
+  GLUI_Master.set_glutIdleFunc(vIdle);
+  GLUI_Master.set_glutReshapeFunc(handleResize);
+
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+
+  GLUI_EditText *counterx_edittext = new GLUI_EditText( glui, "x:", &vX );
+  counterx_edittext->disable();
+
+  new GLUI_Column( glui, false );
+  GLUI_EditText *countery_edittext = new GLUI_EditText( glui, "y:", &vY );
+  countery_edittext->disable();
+  new GLUI_Button(glui,"Simulador Motilidad Ocular",0,(GLUI_Update_CB)exit);
+  
+  new GLUI_Column( glui, false );
+  GLUI_EditText *counterz_edittext = new GLUI_EditText( glui, "z:", &vZ );
+  counterz_edittext->disable();
+  
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+  new GLUI_Column( glui, false );
+
+  edittext = glui->add_edittext("Estado",GLUI_EDITTEXT_TEXT,buffer);
+  edittext->set_w( 600 );
+  edittext->disable();
+
+  new GLUI_Button(glui,"Examen",0,(GLUI_Update_CB)exit);
+  glui->set_main_gfx_window( main_window );
+  TheGlWindowSize=TheInputImage.size();
+
+  glutMainLoop();
+
+  return 0;
+  }
 
     catch (std::exception &ex)
     {
         cout<<"Exception :"<<ex.what()<<endl;
     }
-    
 }
