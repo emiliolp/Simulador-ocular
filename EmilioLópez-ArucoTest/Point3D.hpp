@@ -1,5 +1,8 @@
 #ifndef _POINT3D_H_
 #define _POINT3D_H_
+#include <iostream>
+
+using namespace std;
 
 namespace aruco_test{
 	class Point3D{
@@ -40,7 +43,7 @@ namespace aruco_test{
 		void readPoint3D(float x, float y);
 		void obtenerz(float perimeter);
 		void convertToPixel();
-		void translateCentre();
+		void translateCentre(int position);
 		float turnAxisZ();
 		float turnAxisX();
 		float turnAxisY();
