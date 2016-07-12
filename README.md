@@ -14,7 +14,7 @@ Instrucciones
 - Copiar el fichero de calibración de cámara .yml al directorio build
 - Copiar la carpeta figuras al directorio build
 - Ejemplo de ejecución (cambiar el nombre de fichero .yml):
-	./aruco_test live camera3.yml 0.035
+	./aruco_test live camera3.yml 1
 
 Vídeo demostración: https://www.dropbox.com/s/hinp42bs6ez294m/DSCN0043.MOV?dl=0
 
