@@ -288,7 +288,6 @@ void detectMarker(){
             else if(TheMarkers.size() > 1){
 
                 econt++;
-                cout<<"econt: "<<econt<<endl;
 
                 if(econt >= 20){
 
@@ -695,6 +694,8 @@ int main(int argc, char* argv[])
         glutReshapeFunc(handleResize);
 
         cout << "Drawing the scene" << endl;
+
+        strcpy(cadena,"OK");
 
         glEnable(GL_DEPTH_TEST);
 
