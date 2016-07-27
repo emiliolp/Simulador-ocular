@@ -374,23 +374,26 @@ void calculateEyesPosition(){
     //He supuesto una rotación total de 50º (-25º a +25º). El ángulo máximo de rotación al hacer pruebas es 15º, así que se le aplicará un coeficiente de 1,667 para llegar a 25.
     rotz2 = MarkerEye2.turnAxisZ();
     //Rotación del ojo en el eje x
-    rotx2 = MarkerEye2.turnAxisX() * 1.667;
+    if (MarkerEye2.turnAxisX() > 0)
+        rotx2 = MarkerEye2.turnAxisX() * 8;
+    else
+        rotx2 = MarkerEye2.turnAxisX();
     
     //Rotación del ojo en el eje y
     if ( curr_string_iz == NORMAL)
         
         roty2 = MarkerEye2.turnAxisY() * 1.667;
         
-        else if (curr_string_iz == ESTRABISMO){
-            //Cuando aplicamos estrabismo al ojo izquierdo (posición de reposo), rotamos el ojo hacia el interior 15º * 1.667 (valor que permite ampliar el campo de visión, como vimos antes)
-            rot_estrabismo = ( MarkerEye2.turnAxisY() - 15 ) * 1.667;
+    else if (curr_string_iz == ESTRABISMO){
+        //Cuando aplicamos estrabismo al ojo izquierdo (posición de reposo), rotamos el ojo hacia el interior 15º * 1.667 (valor que permite ampliar el campo de visión, como vimos antes)
+        rot_estrabismo = ( MarkerEye2.turnAxisY() - 15 ) * 1.667;
         
-            if (rot_estrabismo >=  ( -30)){
+        if (rot_estrabismo >=  ( -30)){
 
-                roty2 = rot_estrabismo;
-            }
-            else
-                roty2 = -30;    //Límite rotación eje y
+            roty2 = rot_estrabismo;
+        }
+        else
+            roty2 = -30;    //Límite rotación eje y
         }
 
         //Desplazamiento del ojo derecho
@@ -401,7 +404,11 @@ void calculateEyesPosition(){
         MarkerEye1.setZ(MarkerPx.getZ());
         //Rotación ejes z, x e y
         rotz1 = MarkerEye1.turnAxisZ();
-        rotx1 = MarkerEye1.turnAxisX() * 1.667;
+
+        if (MarkerEye1.turnAxisX() > 0)
+            rotx1 = MarkerEye1.turnAxisX() * 8;
+        else
+            rotx1 = MarkerEye1.turnAxisX();
 
         if ( curr_string_de == NORMAL)
 
@@ -526,7 +533,7 @@ bool readArguments ( int argc,char **argv )
 {
     if (argc!=4) {
         cerr<<"Invalid number of arguments"<<endl;
-        cerr<<"Usage: (in.avi|live)  intrinsics.yml   size   Posición cámara"<<endl;
+        cerr<<"Usage: (in.avi|live)  intrinsics.yml   Posición cámara"<<endl;
         return false;
     }
     TheInputVideo    = argv[1];
