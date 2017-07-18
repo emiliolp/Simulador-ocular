@@ -40,10 +40,10 @@ namespace aruco_test{
 			return _z;
 		}
 
-		void readPoint3D(float x, float y);
-		void obtenerz(float perimeter);
-		void convertToPixel();
-		void translateCentre(int position);
+		void readPoint3D(float x, float y, float z);
+		//void obtenerz(float perimeter);
+		//void convertToPixel();
+		void translateCentre();
 		float turnAxisZ();
 		float turnAxisX();
 		float turnAxisY();
