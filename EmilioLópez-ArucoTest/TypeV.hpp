@@ -1,5 +1,8 @@
 #ifndef _TYPEV_H_
 #define _TYPEV_H_
+#include <iostream>
+#include <cstdio>
+using namespace std;
 
 namespace aruco_test{
 	class TypeV{
