@@ -7,36 +7,36 @@ using namespace std;
 namespace aruco_test{
 	class TypeV{
 	private:
-		float _x, _y, _z;	//coordenadas x, y, z del vértice de un punto de la figura
+		float x, y, z;	//coordenadas x, y, z del vértice de un punto de la figura
 	public:
-		inline TypeV(float _x=0.0, float _y=0.0, float _z=0.0){
-			setX(_x);
-			setY(_y);
-			setZ(_z);
+		inline TypeV(float x=0.0, float y=0.0, float z=0.0){
+			setX(x);
+			setY(y);
+			setZ(z);
 		}
 
 		inline void setX(float v){
-			_x = v;
+			x = v;
 		}
 
 		inline void setY(float v){
-			_y = v;
+			y = v;
 		}
 
 		inline void setZ(float v){
-			_z = v;
+			z = v;
 		}
 
 		inline float getX(){
-			return _x;
+			return x;
 		}
 
 		inline float getY(){
-			return _y;
+			return y;
 		}
 
 		inline float getZ(){
-			return _z;
+			return z;
 		}
 
 		void readTypeV(float x, float y, float z);
