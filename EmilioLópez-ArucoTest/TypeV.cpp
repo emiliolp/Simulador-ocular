@@ -1,6 +1,5 @@
 #include "TypeV.hpp"
 #include <cmath>
-#include <iostream>
 
 using namespace aruco_test;
 using namespace std;
