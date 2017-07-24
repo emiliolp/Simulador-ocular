@@ -13,40 +13,523 @@ int SimulatorWindow::callPopup(){
 
 }
 
-void SimulatorWindow::Choice_Exploracion(Fl_Widget*w) {
+void SimulatorWindow::chooseExploration(Fl_Widget*w) {
 
-        curr_string_iz = NORMAL;
-        angle_iz = 0;
-        curr_string_de = NORMAL;
-        angle_de = 0;
+        leftEyePath = NORMAL;
+        leftAngle = 0;
+        rightEyePath = NORMAL;
+        rightAngle = 0;
 
-        choice_iz->activate();
-        check_oiz->activate();
+        leftChoice->activate();
+        checkLeftOc->activate();
 
-        choice_ojo->value(0);
-        choice_ean->value(0);
-        choice_pat->value(0);
+        eyeChoice->value(0);
+        examAChoice->value(0);
+        patChoice->value(0);
 
-        if (curr_string_iz != NORMAL)
+        if (leftEyePath != NORMAL)
         {
-            choice_ian->activate();
-            check_oiz->activate();
-            choice_oiz->activate();
+            leftAChoice->activate();
+            checkLeftOc->activate();
+            leftOChoice->activate();
         }
 
-        choice_de->activate();
-        check_ode->activate();
+        rightChoice->activate();
+        checkRightOc->activate();
 
-        if (curr_string_de != NORMAL)
+        if (rightEyePath != NORMAL)
         {
-            choice_dan->activate();
-            check_ode->activate();
-            choice_ode->activate();
+            rightAChoice->activate();
+            checkRightOc->activate();
+            righOChoice->activate();
         }
 
-        choice_ojo->deactivate();
-        choice_pat->deactivate();
-        choice_ean->deactivate();
+        eyeChoice->deactivate();
+        patChoice->deactivate();
+        examAChoice->deactivate();
+        patButton->deactivate();
+        checkAnsButton->deactivate();
+
+        examMode = 0;
+
+    }
+    void SimulatorWindow::chooseExam(Fl_Widget*w){
+
+        leftChoice->value(0);
+        leftEyePath = NORMAL;
+        leftAChoice->value(0);
+        leftAngle = 0;
+        leftOChoice->value(0);
+        checkLeftOc->value(0);
+        leftOccluder = TRANSPARENTE;
+
+        rightChoice->value(0);
+        rightEyePath = NORMAL;
+        rightAChoice->value(0);
+        rightAngle = 0;
+        checkRightOc->value(0);
+        righOChoice->value(0);
+        rightOccluder = TRANSPARENTE;
+
+        leftChoice->deactivate();
+        leftAChoice->deactivate();
+        checkLeftOc->deactivate();
+        leftOChoice->deactivate();
+        rightChoice->deactivate();
+        rightAChoice->deactivate();
+        checkRightOc->deactivate();
+        righOChoice->deactivate();
+
+        eyeChoice->activate();
+        patChoice->activate();
+        examAChoice->activate();
+        patButton->activate();
+
+        examMode = 1;
+
+    }
+    void SimulatorWindow::chooseLeftEye(Fl_Widget*w) {
+
+        Fl_Choice *ch = (Fl_Choice*)w;
+
+        if ( strcmp(ch->text(), "Endotropia") == 0){
+
+            if (checkLeftOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                leftEyePath = ENDOTROPIA;
+                leftAngle = 15;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+            else if (checkRightOc->value() == 1){
+                rightEyePath = ENDOTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+
+            leftAChoice->activate();
+            leftAChoice45 = leftAChoice->add("45º");
+            leftAChoice->value(0);
+
+        }
+        else if (strcmp(ch->text(), "Exotropia") == 0){
+
+            if (checkLeftOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                leftEyePath = EXOTROPIA;
+                leftAngle = 15;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+            else if (checkRightOc->value() == 1){
+                rightEyePath = EXOTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+
+            leftAChoice->activate();
+            leftAChoice45 = leftAChoice->add("45º");
+            leftAChoice->value(0);
+        }
+        else if (strcmp(ch->text(), "Hipertropia") == 0){
+
+            if (checkLeftOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                leftEyePath = HIPERTROPIA;
+                leftAngle = 15;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+            else if (checkRightOc->value() == 1){
+                rightEyePath = HIPERTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+
+            leftAChoice->activate();
+            leftAChoice->remove(leftAChoice45);
+            leftAChoice->value(0);
+        }
+        else if (strcmp(ch->text(), "Hipotropia") == 0){
+
+            if (checkLeftOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                leftEyePath = HIPOTROPIA;
+                leftAngle = 15;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+            else if (checkRightOc->value() == 1){
+                rightEyePath = HIPOTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+
+            leftAChoice->activate();
+            leftAChoice->remove(leftAChoice45);
+            leftAChoice->value(0);
+        }
+        else{
+
+            if (checkLeftOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+            else if (checkRightOc->value() == 1){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+
+            leftAChoice->deactivate();
+
+        }
+
+        rightChoice->value(0);
+        rightAChoice->value(0);
+        rightAChoice->deactivate();
+  }
+
+  void SimulatorWindow::chooseRightEye(Fl_Widget*w){
+
+    Fl_Choice *ch = (Fl_Choice*)w;
+
+        if ( strcmp(ch->text(), "Endotropia") == 0){
+
+            if (checkRightOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                rightEyePath = ENDOTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+            else if (checkLeftOc->value() == 1){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = ENDOTROPIA;
+                leftAngle = 15;
+            }
+            rightAChoice->activate();
+            rightAChoice45 = rightAChoice->add("45º");
+            rightAChoice->value(0);
+        }
+        else if (strcmp(ch->text(), "Exotropia") == 0){
+
+            if (checkRightOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                rightEyePath = EXOTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+            else if (checkLeftOc->value() == 1){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = EXOTROPIA;
+                leftAngle = 15;
+            }
+            rightAChoice->activate();
+            rightAChoice45 = rightAChoice->add("45º");
+            rightAChoice->value(0);
+        }
+        else if (strcmp(ch->text(), "Hipertropia") == 0){
+
+            if (checkRightOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                rightEyePath = HIPERTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+            else if (checkLeftOc->value() == 1){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = HIPERTROPIA;
+                leftAngle = 15;
+            }
+            rightAChoice->activate();
+            rightAChoice->remove(rightAChoice45);
+            rightAChoice->value(0);
+        }
+        else if (strcmp(ch->text(), "Hipotropia") == 0){
+
+            if (checkRightOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                rightEyePath = HIPOTROPIA;
+                rightAngle = 15;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+            else if (checkLeftOc->value() == 1){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = HIPOTROPIA;
+                leftAngle = 15;
+            }
+            rightAChoice->activate();
+            rightAChoice->remove(rightAChoice45);
+            rightAChoice->value(0);
+        }
+        else{
+
+            if (checkRightOc->value() == 1 || (checkLeftOc->value() == 0 && checkRightOc->value() == 0)){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+            else if (checkLeftOc->value() == 1){
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+            rightAChoice->deactivate();
+            rightAngle = 5;
+        }
+
+        leftChoice->value(0);
+        leftAChoice->value(0);
+        leftAChoice->deactivate();
+  }
+
+  void SimulatorWindow::chooseLeftAngle(Fl_Widget*w){
+
+    Fl_Choice *ch = (Fl_Choice*)w;
+    if(strcmp(ch->text(), "15º") == 0){
+        leftAngle = 15;
+    }
+    else if (strcmp(ch->text(), "30º") == 0){
+        leftAngle = 30;
+    }
+    else if (strcmp(ch->text(), "45º") == 0){
+        leftAngle = 45;
+    }
+  }
+
+  void SimulatorWindow::chooseRightAngle(Fl_Widget*w){
+
+    Fl_Choice *ch = (Fl_Choice*)w;
+    if(strcmp(ch->text(), "15º") == 0){
+        rightAngle = 15;
+    }
+    else if (strcmp(ch->text(), "30º") == 0){
+        rightAngle = 30;
+    }
+    else if (strcmp(ch->text(), "45º") == 0){
+        rightAngle = 45;
+    }
+  }
+
+  void SimulatorWindow::generatePatient(Fl_Widget*w){
+
+    checkAnsButton->activate();
+
+    eye = rand() % 2;
+    path = rand() % 4 + 1;
+
+    if ( eye == 0 ){
+
+        leftEyePath = path;
+        rightEyePath = NORMAL;
+
+        if ( path == ENDOTROPIA or path == EXOTROPIA ){
+            angle = rand() % 1;
+
+            if ( angle == 0){
+                leftAngle = 15;
+            }
+            else if ( angle == 1){
+                leftAngle = 30;
+            }
+        }
+    }
+    else if ( eye == 1 ){
+
+        rightEyePath = path;
+        leftEyePath = NORMAL;
+
+        if (path == HIPERTROPIA or path == HIPOTROPIA){
+            angle = rand() % 2;
+
+            if (angle == 0){
+                rightAngle = 15;
+            }
+            else if (angle == 1){
+                rightAngle = 30;
+            }
+            else if (angle == 2){
+                rightAngle = 45;
+            }
+        }
+  }
+}
+
+  void SimulatorWindow::chooseEye(Fl_Widget *w){
+
+    Fl_Choice *ch = (Fl_Choice*)w;
+
+    if(strcmp(ch->text(), "Ojo izquierdo") == 0)
+        eyeTest = 0;
+
+    else if (strcmp(ch->text(), "Ojo derecho") == 0)
+        eyeTest = 1;
+
+  }
+
+  void SimulatorWindow::choosePath(Fl_Widget *w){
+
+    Fl_Choice *ch = (Fl_Choice*)w;
+
+    if (strcmp(ch->text(), "Endotropia") == 0)
+        patTest = ENDOTROPIA;
+
+    else if(strcmp(ch->text(), "Exotropia") == 0)
+        patTest = EXOTROPIA;
+
+    else if(strcmp(ch->text(), "Hipertropia") == 0)
+        patTest = HIPERTROPIA;
+
+    else if(strcmp(ch->text(), "Hipotropia") == 0)
+        patTest = HIPOTROPIA;
+  }
+
+  void SimulatorWindow::chooseAngle(Fl_Widget *w){
+
+    Fl_Choice *ch = (Fl_Choice*)w;
+
+    if (strcmp(ch->text(), "15º") == 0)
+        angleTest = 0;
+
+    else if (strcmp(ch->text(), "30º") == 0)
+        angleTest = 1;
+
+    else if (strcmp(ch->text(), "45º") == 0)
+        angleTest = 2;
+  }
+
+    void SimulatorWindow::checkAnswer(Fl_Widget*w){
+
+        if (eyeTest == eye and patTest == path and angleTest == angle){
+
+            fl_message("Correcto","Aceptar",0,0);
+
+        }
+
+        else{
+
+            HANDLE hcon;
+            hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+            COORD dwPos;
+            dwPos.X = 0;
+            dwPos.Y= 0;
+            SetConsoleCursorPosition(hcon,dwPos);
+            fl_message("Incorrecto. Inténtelo de nuevo","Aceptar",0,0);
+        }
+
+    }
+
+    void SimulatorWindow::controlLeftOc(Fl_Widget*w){
+
+
+        if(checkLeftOc->value() == 1){
+            leftOChoice->activate();
+            checkRightOc->value(0);
+            righOChoice->deactivate();
+            righOChoice->value(0);
+            rightOccluder = TRANSPARENTE;
+
+            if(rightEyePath != NORMAL){
+                leftEyePath = rightEyePath;
+                leftAngle = rightAngle;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+        }
+        else{
+            leftOChoice->deactivate();
+
+            if (leftChoice->value() == 0 && rightChoice->value() != 0){
+                rightEyePath = leftEyePath;
+                rightAngle = leftAngle;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+        }
+    }
+
+    void SimulatorWindow::controlRightOc(Fl_Widget*w){
+
+        if(checkRightOc->value() == 1){
+            righOChoice->activate();
+            checkLeftOc->value(0);
+            leftOChoice->deactivate();
+            leftOChoice->value(0);
+            leftOccluder = TRANSPARENTE;
+
+            if(leftEyePath != NORMAL){
+                rightEyePath = leftEyePath;
+                rightAngle = leftAngle;
+                leftEyePath = NORMAL;
+                leftAngle = 0;
+            }
+        }
+        else{
+            righOChoice->deactivate();
+            if (rightChoice->value() == 0 && leftChoice->value() != 0){
+                leftEyePath = rightEyePath;
+                leftAngle = rightAngle;
+                rightEyePath = NORMAL;
+                rightAngle = 0;
+            }
+        }
+    }
+
+    void SimulatorWindow::chooseMatLOc(Fl_Widget*w){
+
+        Fl_Choice *ch = (Fl_Choice*)w;
+
+    if (strcmp(ch->text(), "Transparente") == 0)
+        leftOccluder = TRANSPARENTE;
+
+    else if(strcmp(ch->text(), "Opaco") == 0)
+        leftOccluder = OPACO;
+
+        if(rightEyePath != NORMAL){
+            leftEyePath = rightEyePath;
+            leftAngle = rightAngle;
+            rightEyePath = NORMAL;
+            rightAngle = 0;
+        }
+
+    }
+
+    void SimulatorWindow::chooseMatROc(Fl_Widget*w){
+
+        Fl_Choice *ch = (Fl_Choice*)w;
+
+    if (strcmp(ch->text(), "Transparente") == 0)
+        rightOccluder = TRANSPARENTE;
+
+    else if(strcmp(ch->text(), "Opaco") == 0)
+        rightOccluder = OPACO;
+
+
+    if(leftEyePath != NORMAL){
+            rightEyePath = leftEyePath;
+            rightAngle = leftAngle;
+            leftEyePath = NORMAL;
+            leftAngle = 0;
+        }
+
+    }
+
+   void SimulatorWindow::showHelp(Fl_Widget*w){
+
+        popupActive = true;
+        callPopup();
+
+    }
+
         b_paciente->deactivate();
         b_comprobar->deactivate();
 
