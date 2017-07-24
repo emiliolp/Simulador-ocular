@@ -41,12 +41,12 @@ namespace aruco_test{
 		}
 
 		void readPoint3D(float x, float y, float z);
-		//void obtenerz(float perimeter);
-		//void convertToPixel();
 		void translateCentre();
-		float turnAxisZ();
 		float turnAxisX();
 		float turnAxisY();
+	};
+}
+#endif
 	};
 }
 #endif
