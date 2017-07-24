@@ -14,10 +14,10 @@
 #include "wtypes.h"
 #include <FL/Fl_Pixmap.H>
 
-extern Fl_Choice *choice_iz, *choice_de, *choice_ian, *choice_dan, *choice_ojo, *choice_pat, *choice_ean, *choice_oiz, *choice_ode;
-extern Fl_Button *b_paciente, *b_comprobar, *b_help, *b_close, *b_marker, *b_calib, *b_start_calib, *b_finish_calib;
-extern Fl_Check_Button *check_oiz, *check_ode;
-extern int choice_dan45, choice_ian45, eye, patologia, angle, eye_test, pat_test, angle_test;
+extern Fl_Choice *leftChoice, *rightChoice, *leftAChoice, *rightAChoice, *eyeChoice, *patChoice, *examAChoice, *leftOChoice, *righOChoice;
+extern Fl_Button *patButton, *checkAnsButton, *helpButton, *closeButton, *markerButton, *calibButton, *startButton, *finishButton;
+extern Fl_Check_Button *checkLeftOc, *checkRightOc;
+extern int rightAChoice45, leftAChoice45, eye, path, angle, eyeTest, patTest, angleTest;
 extern Fl_Window *pop;
 
 class SimulatorWindow : public Fl_Window {
@@ -31,8 +31,7 @@ class SimulatorWindow : public Fl_Window {
         SimulatorWindow(int W,int H,const char*L=0) : Fl_Window(W,H,L) {
 
         figureGl = new FaceWindow(300, 0, w()-600, h()-120);
-        ///mygl_cam = new MyGlWindowCam(1366-300,0, 300, 187.5);
-        viewer   = new CamWindow(1366-300,0, 300, 225);
+        viewer   = new CamWindow(w()-300,0, 300, 225);
 
         grUI = new Fl_Group(10,672,800,25);
         {
@@ -40,13 +39,155 @@ class SimulatorWindow : public Fl_Window {
             grUI->type(102);
             grUI->down_box(FL_ROUND_DOWN_BOX);
             grUI->setonly();
-            grUI->callback(SimulatorWindow::Choice_Exploracion);
+            grUI->callback(SimulatorWindow::chooseExploration);
 
         }
 
         {
             Fl_Round_Button* grUI = new Fl_Round_Button(680, 672, 113, 25, "Examen");
             grUI->type(102);
+            grUI->down_box(FL_ROUND_DOWN_BOX);
+            grUI->callback(SimulatorWindow::chooseExam);
+        }
+        grUI->end();
+
+        leftChoice = new Fl_Choice(137,698,140,22,"Ojo izquierdo:");
+        leftChoice->add("Sin patología");
+        leftChoice->add("Endotropia");
+        leftChoice->add("Exotropia");
+        leftChoice->add("Hipertropia");
+        leftChoice->add("Hipotropia");
+        leftChoice->callback(SimulatorWindow::chooseLeftEye);
+        leftChoice->value(0);
+        leftChoice->color(FL_BLUE);
+
+        leftAChoice = new Fl_Choice(360,698,70,22,"Ángulo:");
+        leftAChoice->add("15º");
+        leftAChoice->add("30º");
+        leftAChoice45 = leftAChoice->add("45º");
+        leftAChoice->value(0);
+        leftAChoice->callback(SimulatorWindow::chooseLeftAngle);
+        leftAChoice->deactivate();
+        leftAChoice->color(FL_BLUE);
+
+        checkLeftOc = new Fl_Check_Button(450, 698, 73, 22, "Oclusor:");
+        checkLeftOc->callback(SimulatorWindow::controlLeftOc);
+
+        leftOChoice = new Fl_Choice(525, 698, 113, 22, "");
+        leftOChoice->add("Transparente");
+        leftOChoice->add("Opaco");
+        leftOChoice->value(0);
+        leftOChoice->callback(SimulatorWindow::chooseMatLOc);
+        leftOChoice->deactivate();
+        leftOChoice->color(FL_BLUE);
+
+        rightChoice = new Fl_Choice(137,728,140,22,"Ojo derecho: ");
+        rightChoice->add("Sin patología");
+        rightChoice->add("Endotropia");
+        rightChoice->add("Exotropia");
+        rightChoice->add("Hipertropia");
+        rightChoice->add("Hipotropia");
+        rightChoice->callback(SimulatorWindow::chooseRightEye);
+        rightChoice->value(0);
+        rightChoice->color(FL_BLUE);
+
+        rightAChoice = new Fl_Choice(360,728,70,22,"Ángulo:");
+        rightAChoice->add("15º");
+        rightAChoice->add("30º");
+        rightAChoice45 = rightAChoice->add("45º");
+        rightAChoice->value(0);
+        rightAChoice->callback(SimulatorWindow::chooseRightAngle);
+        rightAChoice->deactivate();
+        rightAChoice->color(FL_BLUE);
+
+        checkRightOc = new Fl_Check_Button(450, 728, 73, 22, "Oclusor");
+        checkRightOc->callback(SimulatorWindow::controlRightOc);
+
+        righOChoice = new Fl_Choice(525, 728, 113, 22, "");
+        righOChoice->add("Transparente");
+        righOChoice->add("Opaco");
+        righOChoice->value(0);
+        righOChoice->callback(SimulatorWindow::chooseMatROc);
+        righOChoice->deactivate();
+        righOChoice->color(FL_BLUE);
+
+        //Modo examen
+        eyeChoice = new Fl_Choice(775,698,140,22,"Diagnóstico:");
+        eyeChoice->add("Ojo izquierdo");
+        eyeChoice->add("Ojo derecho");
+        eyeChoice->value(0);
+        eyeChoice->deactivate();
+        eyeChoice->callback(SimulatorWindow::chooseEye);
+        eyeChoice->color(FL_BLUE);
+
+        patChoice = new Fl_Choice(925, 698, 140, 22,"");
+        patChoice->add("Endotropia");
+        patChoice->add("Exotropia");
+        patChoice->add("Hipertropia");
+        patChoice->add("Hipotropia");
+        patChoice->value(0);
+        patChoice->callback(SimulatorWindow::choosePath);
+        patChoice->deactivate();
+        patChoice->color(FL_BLUE);
+
+        examAChoice = new Fl_Choice(1077, 698, 140,22,"");
+        examAChoice->add("15º");
+        examAChoice->add("30º");
+        examAChoice->add("45º");
+        examAChoice->value(0);
+        examAChoice->callback(SimulatorWindow::chooseAngle);
+        examAChoice->deactivate();
+        examAChoice->color(FL_BLUE);
+
+        patButton = new Fl_Button(685,728,140,22,"Generar paciente");
+        patButton->color(FL_BLUE);
+        patButton->labelcolor(FL_WHITE);
+        patButton->callback(SimulatorWindow::generatePatient);
+        patButton->deactivate();
+
+        checkAnsButton = new Fl_Button(875, 728,140,22,"Comprobar");
+        checkAnsButton->color(FL_BLUE);
+        checkAnsButton->labelcolor(FL_WHITE);
+        checkAnsButton->callback(SimulatorWindow::checkAnswer);
+        checkAnsButton->deactivate();
+
+        helpButton = new Fl_Button(1229, 698, 52, 52, "");
+        helpButton->color(FL_BLUE);
+        helpButton->callback(SimulatorWindow::showHelp);
+        static Fl_Pixmap G_cat(cat_xpm);
+        helpButton->image(G_cat);
+
+        Fl_Window *margin_left = new Fl_Window(0,0,400,h()-120);
+        margin_left->color(FL_BLACK);
+        margin_left->end();
+        Fl_Window *margin_right = new Fl_Window(1366-400, 225, 400, h()-(225+120));
+        margin_right->color(FL_BLACK);
+        margin_right->end();
+    }
+
+    public: static int callPopup();
+    private:
+        static void chooseExploration(Fl_Widget*w);
+        static void chooseExam(Fl_Widget*w);
+        static void chooseLeftEye(Fl_Widget*w);
+        static void chooseRightEye(Fl_Widget*w);
+        static void chooseLeftAngle(Fl_Widget*w);
+        static void chooseRightAngle(Fl_Widget*w);
+        static void generatePatient(Fl_Widget*w);
+        static void chooseEye(Fl_Widget *w);
+        static void choosePath(Fl_Widget *w);
+        static void chooseAngle(Fl_Widget *w);
+        static void checkAnswer(Fl_Widget*w);
+        static void controlLeftOc(Fl_Widget*w);
+        static void controlRightOc(Fl_Widget*w);
+        static void chooseMatLOc(Fl_Widget*w);
+        static void chooseMatROc(Fl_Widget*w);
+        static void showHelp(Fl_Widget*w);
+
+};
+
+#endif // _SIMULATORWINDOW_H_
+
             grUI->down_box(FL_ROUND_DOWN_BOX);
             grUI->callback(SimulatorWindow::Choice_Examen);
         }
