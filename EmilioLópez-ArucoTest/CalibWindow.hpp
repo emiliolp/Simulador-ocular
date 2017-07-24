@@ -1,7 +1,6 @@
 #ifndef _CALIBWINDOW_H_
 #define _CALIBWINDOW_H_
 
-#include <FL/Fl_Window.H>
 #include <FL/Fl_Text_Buffer.H>
 #include <FL/Fl_Text_Display.H>
 #include <FL/Fl_Button.H>
@@ -14,14 +13,14 @@
 using namespace cv;
 using namespace aruco;
 
-extern Marker Marker1;
+extern Marker markerChoosed;
 extern bool noExisteTag, flagCalibration;
-extern MarkerMap TheMarkerMapConfig;
-extern vector < vector<cv::Point2f>  > calib_p2d;
-extern vector < vector<cv::Point3f>  > calib_p3d;
+extern MarkerMap theMarkerMapConfig;
+extern vector < vector<cv::Point2f>  > calibP2d;
+extern vector < vector<cv::Point3f>  > calibP3d;
 extern aruco::CameraParameters camp;
-extern Mat TheInputImage;
-extern CameraParameters TheCameraParams;
+extern Mat inputImage;
+extern CameraParameters cameraParams;
 extern Fl_Window *winCalib;
 extern Fl_JPEG_Image *calibImage1, *calibImage2, *calibImage3, *calibImage4;
 extern Fl_Box *boxCalibra1, *boxCalibra2, *boxCalibra3, *boxCalibra4;
@@ -47,6 +46,27 @@ namespace aruco_test{
             {  FL_BLACK, 0, 14 }, // C - Green
             //{  FL_BLACK, 0, 14 }, // D - Blue
         };
+        container = new Fl_Text_Display(20, 10, 710, 138, "");
+        container->box(FL_NO_BOX);
+        bufferText = new Fl_Text_Buffer();      // text buffer
+        bufferStyle = new Fl_Text_Buffer();      // style buffer
+        container->buffer(bufferText);
+        int stableSize = sizeof(stable)/sizeof(stable[0]);
+        container->highlight_data(bufferStyle, stable, stableSize, 'A', 0, 0);
+        // Text
+        // Style for text
+        bufferText->text("Siga las siguientes instrucciones para calibrar la cámara:\n(sólo es necesario realizarlo una vez)\n1-Reproduzca cada una de las siguientes vistas del tag frente a la cámara en el cuadrado amarillo.\n2-Pulse Capturar para almacenar cada imagen.\n");
+        bufferStyle->text("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\n");
+
+    }
+
+		static void getMarker2d3d(vector<cv::Point2f> &p2d, vector<cv::Point3f> &p3d, const MarkerMap &bc);
+		static void Capture(Fl_Widget *w, void *d);
+
+	};
+}
+#endif
+
         container = new Fl_Text_Display(20, 10, 710, 138, "");
         container->box(FL_NO_BOX);
         bufferText = new Fl_Text_Buffer();      // text buffer
