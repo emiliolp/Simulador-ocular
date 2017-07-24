@@ -4,8 +4,8 @@
 namespace aruco_test{
 	class TypeF{
 	private:
-		float _a, _b, _c;		//almacenan la posición de cada vértice del triángulo
-		float _an, _bn, _cn;	//almacenan la posición de la normal de cada vértice
+		float a, b, c;		//almacenan la posición de cada vértice del triángulo
+		float an, bn, cn;	//almacenan la posición de la normal de cada vértice
 	public:
 		inline TypeF(int a=0, int b=0, int c=0, int an=0, int bn=0, int cn=0){
 			setA(a);
@@ -17,36 +17,58 @@ namespace aruco_test{
 		}
 
 		inline void setA(int v){
-			_a = v;
+			a = v;
 		}
 
 		inline void setB(int v){
-			_b = v;
+			b = v;
 		}
 
 		inline void setC(int v){
-			_c = v;
+			c = v;
 		}
 
 		inline void setAn(int v){
-			_an = v;
+			an = v;
 		}
 
 		inline void setBn(int v){
-			_bn = v;
+			bn = v;
 		}
 
 		inline void setCn(int v){
-			_cn = v;
+			cn = v;
 		}
 
 		inline int getA(){
-			return _a;
+			return a;
 		}
 
 		inline int getB(){
-			return _b;
+			return b;
 		}
+
+		inline int getC(){
+			return c;
+		}
+
+		inline int getAn(){
+			return an;
+		}
+
+		inline int getBn(){
+			return bn;
+		}
+
+		inline int getCn(){
+			return cn;
+		}
+
+		void readTypeF(int a,int b, int c, int an,int bn, int cn);
+	};
+}
+#endif
+
 
 		inline int getC(){
 			return _c;
