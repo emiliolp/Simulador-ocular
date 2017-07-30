@@ -1,0 +1,1110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Simulador de la motilidad ocular normal y con anomalías: Referencia del Archivo main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="OJO_AZUL_y_naranja (1).png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Simulador de la motilidad ocular normal y con anomalías
+   </div>
+   <div id="projectbrief">Aplicación perteneciente al Trabajo Fin de Grado de la Universidad de Córdoba &quot;Aplicación de escritorio simuladora de la motilidad ocular normal y con anomalías&quot;. Realizado por Emilio López Piña. Directores: Antonio Araúzo Azofra y Fernando Labella Quesada</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;FL/Fl_Box.H&gt;</code><br />
+<code>#include &lt;FL/Fl_Choice.H&gt;</code><br />
+<code>#include &lt;FL/Fl_Button.H&gt;</code><br />
+<code>#include &lt;opencv2/calib3d/calib3d.hpp&gt;</code><br />
+<code>#include &lt;aruco/aruco.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_simulator_window_8hpp_source.html">SimulatorWindow.hpp</a>&quot;</code><br />
+<code>#include &lt;GL/glut.h&gt;</code><br />
+<code>#include &lt;FL/Fl_Round_Button.H&gt;</code><br />
+<code>#include &lt;Fl/Fl_Check_Button.H&gt;</code><br />
+<code>#include &lt;FL/Fl_JPEG_Image.H&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad9e2e1007d75127f2da0b0e12ac48057"><td class="memItemLeft" align="right" valign="top">VideoCapture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad9e2e1007d75127f2da0b0e12ac48057">videoCapturer</a></td></tr>
+<tr class="separator:ad9e2e1007d75127f2da0b0e12ac48057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38a7c39ba21d73440fea3db71ab3c9b"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac38a7c39ba21d73440fea3db71ab3c9b">inputImage</a></td></tr>
+<tr class="separator:ac38a7c39ba21d73440fea3db71ab3c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab199b636b8584c105ca88654d0f7b740"><td class="memItemLeft" align="right" valign="top">CameraParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab199b636b8584c105ca88654d0f7b740">cameraParams</a></td></tr>
+<tr class="separator:ab199b636b8584c105ca88654d0f7b740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe66f867f31dfda99a33011cbb54ce6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#adfe66f867f31dfda99a33011cbb54ce6">popupActive</a> = false</td></tr>
+<tr class="separator:adfe66f867f31dfda99a33011cbb54ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a96cbb97f49f8d4e17a8ec681fe4195"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7a96cbb97f49f8d4e17a8ec681fe4195">flagCalibration</a> = false</td></tr>
+<tr class="separator:a7a96cbb97f49f8d4e17a8ec681fe4195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ad67aebaedfc71ae675626dc94b9de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a92ad67aebaedfc71ae675626dc94b9de">noExisteTag</a> = true</td></tr>
+<tr class="separator:a92ad67aebaedfc71ae675626dc94b9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf2d9b92561b0bb1336101ce7fd9f1c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsimulator_1_1_point3_d.html">Point3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aaf2d9b92561b0bb1336101ce7fd9f1c1">markerPx</a></td></tr>
+<tr class="separator:aaf2d9b92561b0bb1336101ce7fd9f1c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc46a6bb38a773b942a36250b88852c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsimulator_1_1_point3_d.html">Point3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afcc46a6bb38a773b942a36250b88852c">markerCm</a></td></tr>
+<tr class="separator:afcc46a6bb38a773b942a36250b88852c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c53f7ee11b4d663681608ce0296c672"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7c53f7ee11b4d663681608ce0296c672">rotAnt</a> = 0.0</td></tr>
+<tr class="separator:a7c53f7ee11b4d663681608ce0296c672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33aa9368308842f63e7ec0a94776219a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a33aa9368308842f63e7ec0a94776219a">econt</a> =0</td></tr>
+<tr class="separator:a33aa9368308842f63e7ec0a94776219a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf4d1f28760700154a723eb3209352b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8bf4d1f28760700154a723eb3209352b">leftEyePath</a> = <a class="el" href="_face_window_8hpp.html#a1291f416b069313021b519eea62d5bf1">NORMAL</a></td></tr>
+<tr class="separator:a8bf4d1f28760700154a723eb3209352b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acde2515f15c7cb0deed30adf87846218"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#acde2515f15c7cb0deed30adf87846218">rightEyePath</a> = <a class="el" href="_face_window_8hpp.html#a1291f416b069313021b519eea62d5bf1">NORMAL</a></td></tr>
+<tr class="separator:acde2515f15c7cb0deed30adf87846218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a050cdca1dd1b031c09e37f64ee35cbc8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a050cdca1dd1b031c09e37f64ee35cbc8">leftAChoice45</a> = 0</td></tr>
+<tr class="separator:a050cdca1dd1b031c09e37f64ee35cbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9adc71fb00a3ccbd24fd6702ccf78eb3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9adc71fb00a3ccbd24fd6702ccf78eb3">rightAChoice45</a> = 0</td></tr>
+<tr class="separator:a9adc71fb00a3ccbd24fd6702ccf78eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c5860ebc1d0ec0775417af5673d95a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac6c5860ebc1d0ec0775417af5673d95a">leftAngle</a> = 0</td></tr>
+<tr class="separator:ac6c5860ebc1d0ec0775417af5673d95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a321274a5ed881d42bca0063d7473fd25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a321274a5ed881d42bca0063d7473fd25">rightAngle</a> = 0</td></tr>
+<tr class="separator:a321274a5ed881d42bca0063d7473fd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939a656cfcd77c8809e2ba16bafded86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a939a656cfcd77c8809e2ba16bafded86">eye</a></td></tr>
+<tr class="separator:a939a656cfcd77c8809e2ba16bafded86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a2581c8c0d843c7344eb1dc7694b6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa0a2581c8c0d843c7344eb1dc7694b6e">path</a></td></tr>
+<tr class="separator:aa0a2581c8c0d843c7344eb1dc7694b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63177970cacb40efba67ce501ea89210"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a63177970cacb40efba67ce501ea89210">angle</a></td></tr>
+<tr class="separator:a63177970cacb40efba67ce501ea89210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95c74e0414ed4981cab54f6bd8eedfe0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a95c74e0414ed4981cab54f6bd8eedfe0">fillResizeFace</a> = 0</td></tr>
+<tr class="separator:a95c74e0414ed4981cab54f6bd8eedfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a447d42e42c46fd513aa948ae2389cf5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a447d42e42c46fd513aa948ae2389cf5f">eyeTest</a></td></tr>
+<tr class="separator:a447d42e42c46fd513aa948ae2389cf5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f05effc22c7545e7800c0d65052c35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a62f05effc22c7545e7800c0d65052c35">patTest</a></td></tr>
+<tr class="separator:a62f05effc22c7545e7800c0d65052c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91f1d249f81df0a6dea7a846e13ef19"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab91f1d249f81df0a6dea7a846e13ef19">angleTest</a></td></tr>
+<tr class="separator:ab91f1d249f81df0a6dea7a846e13ef19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4d001f9febad0b38fb529d7389bf55"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#abb4d001f9febad0b38fb529d7389bf55">leftOccluder</a> = <a class="el" href="_face_window_8hpp.html#a31c2e0212158165e0e03cb03957c4336">TRANSPARENTE</a></td></tr>
+<tr class="separator:abb4d001f9febad0b38fb529d7389bf55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9c56f345defcebd9bb4cfeeb46beba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#adc9c56f345defcebd9bb4cfeeb46beba">rightOccluder</a> = <a class="el" href="_face_window_8hpp.html#a31c2e0212158165e0e03cb03957c4336">TRANSPARENTE</a></td></tr>
+<tr class="separator:adc9c56f345defcebd9bb4cfeeb46beba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90bcf57878f09df699e972a5948f14fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a90bcf57878f09df699e972a5948f14fb">examMode</a> = 0</td></tr>
+<tr class="separator:a90bcf57878f09df699e972a5948f14fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4fd69b956ecebe41334003a818ddd0c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae4fd69b956ecebe41334003a818ddd0c">cameraError</a> = 0</td></tr>
+<tr class="separator:ae4fd69b956ecebe41334003a818ddd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab37c0b8d9929e84569d5285ea833b94"><td class="memItemLeft" align="right" valign="top">Marker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aab37c0b8d9929e84569d5285ea833b94">markerChoosed</a></td></tr>
+<tr class="separator:aab37c0b8d9929e84569d5285ea833b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7226254be47a0474fc6fd3ad7651ee52"><td class="memItemLeft" align="right" valign="top">Fl_Box *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7226254be47a0474fc6fd3ad7651ee52">boxCalibra1</a></td></tr>
+<tr class="separator:a7226254be47a0474fc6fd3ad7651ee52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abefbbec90678a5e84c814c2c975af843"><td class="memItemLeft" align="right" valign="top">Fl_Box *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#abefbbec90678a5e84c814c2c975af843">boxCalibra2</a></td></tr>
+<tr class="separator:abefbbec90678a5e84c814c2c975af843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a96a9745c008a20ac74818a01be510"><td class="memItemLeft" align="right" valign="top">Fl_Box *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad7a96a9745c008a20ac74818a01be510">boxCalibra3</a></td></tr>
+<tr class="separator:ad7a96a9745c008a20ac74818a01be510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2f6d378708579c45537cb61893f70b"><td class="memItemLeft" align="right" valign="top">Fl_Box *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aad2f6d378708579c45537cb61893f70b">boxCalibra4</a></td></tr>
+<tr class="separator:aad2f6d378708579c45537cb61893f70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7048b09eb1029755b7af818a5e9f14e8"><td class="memItemLeft" align="right" valign="top">Fl_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7048b09eb1029755b7af818a5e9f14e8">pop</a></td></tr>
+<tr class="separator:a7048b09eb1029755b7af818a5e9f14e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a999e72158a2dd2aa2fbced76cfdc93a2"><td class="memItemLeft" align="right" valign="top">Fl_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a999e72158a2dd2aa2fbced76cfdc93a2">winCalib</a></td></tr>
+<tr class="separator:a999e72158a2dd2aa2fbced76cfdc93a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c61f819f61d9de815044e9d3c4c7609"><td class="memItemLeft" align="right" valign="top">MarkerMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c61f819f61d9de815044e9d3c4c7609">theMarkerMapConfig</a></td></tr>
+<tr class="separator:a3c61f819f61d9de815044e9d3c4c7609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6dc691d75399d913cc72b807cd81bd"><td class="memItemLeft" align="right" valign="top">CameraParameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4b6dc691d75399d913cc72b807cd81bd">camp</a></td></tr>
+<tr class="separator:a4b6dc691d75399d913cc72b807cd81bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a954cb2718cf2b8835c9652541a54ae45"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a954cb2718cf2b8835c9652541a54ae45">leftChoice</a></td></tr>
+<tr class="separator:a954cb2718cf2b8835c9652541a54ae45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2063d65a386328b2f7c94de1dca4f4e0"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2063d65a386328b2f7c94de1dca4f4e0">rightChoice</a></td></tr>
+<tr class="separator:a2063d65a386328b2f7c94de1dca4f4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f995fca15f7eff1b6275f605da60dc"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac9f995fca15f7eff1b6275f605da60dc">leftAChoice</a></td></tr>
+<tr class="separator:ac9f995fca15f7eff1b6275f605da60dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5415a22e37bb366e30e87c5c0cbfaadd"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5415a22e37bb366e30e87c5c0cbfaadd">rightAChoice</a></td></tr>
+<tr class="separator:a5415a22e37bb366e30e87c5c0cbfaadd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e4ed2d83582a6b0cad76f82ca7722e"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab2e4ed2d83582a6b0cad76f82ca7722e">eyeChoice</a></td></tr>
+<tr class="separator:ab2e4ed2d83582a6b0cad76f82ca7722e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad601bd7c170ad2ce7e898d23f256d9b3"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad601bd7c170ad2ce7e898d23f256d9b3">patChoice</a></td></tr>
+<tr class="separator:ad601bd7c170ad2ce7e898d23f256d9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ab58934cbdd42f899a7c5db1d80065"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab4ab58934cbdd42f899a7c5db1d80065">examAChoice</a></td></tr>
+<tr class="separator:ab4ab58934cbdd42f899a7c5db1d80065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aa7365e3f0048f49008e6c3fc8786d5"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9aa7365e3f0048f49008e6c3fc8786d5">leftOChoice</a></td></tr>
+<tr class="separator:a9aa7365e3f0048f49008e6c3fc8786d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b9b044cf4020d0a9f2a7a55c04f0464"><td class="memItemLeft" align="right" valign="top">Fl_Choice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3b9b044cf4020d0a9f2a7a55c04f0464">righOChoice</a></td></tr>
+<tr class="separator:a3b9b044cf4020d0a9f2a7a55c04f0464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4dc17ab3515b06bdab83277d1d9715"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9e4dc17ab3515b06bdab83277d1d9715">patButton</a></td></tr>
+<tr class="separator:a9e4dc17ab3515b06bdab83277d1d9715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceab7ed66cb44269ddc4e3885546cc61"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aceab7ed66cb44269ddc4e3885546cc61">checkAnsButton</a></td></tr>
+<tr class="separator:aceab7ed66cb44269ddc4e3885546cc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a97a91c01a5f287f66dffd124d4c883"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a6a97a91c01a5f287f66dffd124d4c883">helpButton</a></td></tr>
+<tr class="separator:a6a97a91c01a5f287f66dffd124d4c883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b7a499451ab5dfb9e9809becea8cda6"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7b7a499451ab5dfb9e9809becea8cda6">closeButton</a></td></tr>
+<tr class="separator:a7b7a499451ab5dfb9e9809becea8cda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6608e9ecd4aafd1dbb048139044760b3"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a6608e9ecd4aafd1dbb048139044760b3">markerButton</a></td></tr>
+<tr class="separator:a6608e9ecd4aafd1dbb048139044760b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a296229c56a8df568abc58dfc23726d17"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a296229c56a8df568abc58dfc23726d17">calibButton</a></td></tr>
+<tr class="separator:a296229c56a8df568abc58dfc23726d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb750c758333550f99d51e96511390a0"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afb750c758333550f99d51e96511390a0">startButton</a></td></tr>
+<tr class="separator:afb750c758333550f99d51e96511390a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533e0b8677fd8fca72f8d414dae64dfb"><td class="memItemLeft" align="right" valign="top">Fl_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a533e0b8677fd8fca72f8d414dae64dfb">finishButton</a></td></tr>
+<tr class="separator:a533e0b8677fd8fca72f8d414dae64dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6adf7091da253b46d88907082d356c21"><td class="memItemLeft" align="right" valign="top">Fl_Check_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a6adf7091da253b46d88907082d356c21">checkLeftOc</a></td></tr>
+<tr class="separator:a6adf7091da253b46d88907082d356c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91e5e2a4c8d5d632ae2d7587a8e40e23"><td class="memItemLeft" align="right" valign="top">Fl_Check_Button *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a91e5e2a4c8d5d632ae2d7587a8e40e23">checkRightOc</a></td></tr>
+<tr class="separator:a91e5e2a4c8d5d632ae2d7587a8e40e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae55a183a5940215ce67a8740ec8639ae"><td class="memItemLeft" align="right" valign="top">Point2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae55a183a5940215ce67a8740ec8639ae">markerAnt</a></td></tr>
+<tr class="separator:ae55a183a5940215ce67a8740ec8639ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3ea9e5b69b2f628d2d56a632ce4afc"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; cv::Point2f &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4b3ea9e5b69b2f628d2d56a632ce4afc">calibP2d</a></td></tr>
+<tr class="separator:a4b3ea9e5b69b2f628d2d56a632ce4afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4773249b9051c5d539dd8c3d0620a2"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; cv::Point3f &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a0a4773249b9051c5d539dd8c3d0620a2">calibP3d</a></td></tr>
+<tr class="separator:a0a4773249b9051c5d539dd8c3d0620a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864e2cdea07ead72c0bbcc4431c5e25f"><td class="memItemLeft" align="right" valign="top">Fl_JPEG_Image *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a864e2cdea07ead72c0bbcc4431c5e25f">calibImage1</a></td></tr>
+<tr class="separator:a864e2cdea07ead72c0bbcc4431c5e25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7423a5d011dfebff39fe65635a2043f1"><td class="memItemLeft" align="right" valign="top">Fl_JPEG_Image *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7423a5d011dfebff39fe65635a2043f1">calibImage2</a></td></tr>
+<tr class="separator:a7423a5d011dfebff39fe65635a2043f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11373c453190c9e08964b7503f49e051"><td class="memItemLeft" align="right" valign="top">Fl_JPEG_Image *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a11373c453190c9e08964b7503f49e051">calibImage3</a></td></tr>
+<tr class="separator:a11373c453190c9e08964b7503f49e051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a6bb0aa8fe7678105ffcbf4fc66177"><td class="memItemLeft" align="right" valign="top">Fl_JPEG_Image *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a79a6bb0aa8fe7678105ffcbf4fc66177">calibImage4</a></td></tr>
+<tr class="separator:a79a6bb0aa8fe7678105ffcbf4fc66177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="a63177970cacb40efba67ce501ea89210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63177970cacb40efba67ce501ea89210">&#9670;&nbsp;</a></span>angle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int angle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab91f1d249f81df0a6dea7a846e13ef19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91f1d249f81df0a6dea7a846e13ef19">&#9670;&nbsp;</a></span>angleTest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int angleTest</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7226254be47a0474fc6fd3ad7651ee52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7226254be47a0474fc6fd3ad7651ee52">&#9670;&nbsp;</a></span>boxCalibra1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Box* boxCalibra1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abefbbec90678a5e84c814c2c975af843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefbbec90678a5e84c814c2c975af843">&#9670;&nbsp;</a></span>boxCalibra2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Box * boxCalibra2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7a96a9745c008a20ac74818a01be510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a96a9745c008a20ac74818a01be510">&#9670;&nbsp;</a></span>boxCalibra3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Box * boxCalibra3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad2f6d378708579c45537cb61893f70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2f6d378708579c45537cb61893f70b">&#9670;&nbsp;</a></span>boxCalibra4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Box * boxCalibra4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a296229c56a8df568abc58dfc23726d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a296229c56a8df568abc58dfc23726d17">&#9670;&nbsp;</a></span>calibButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * calibButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a864e2cdea07ead72c0bbcc4431c5e25f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a864e2cdea07ead72c0bbcc4431c5e25f">&#9670;&nbsp;</a></span>calibImage1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_JPEG_Image* calibImage1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7423a5d011dfebff39fe65635a2043f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7423a5d011dfebff39fe65635a2043f1">&#9670;&nbsp;</a></span>calibImage2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_JPEG_Image * calibImage2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11373c453190c9e08964b7503f49e051"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11373c453190c9e08964b7503f49e051">&#9670;&nbsp;</a></span>calibImage3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_JPEG_Image * calibImage3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79a6bb0aa8fe7678105ffcbf4fc66177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a6bb0aa8fe7678105ffcbf4fc66177">&#9670;&nbsp;</a></span>calibImage4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_JPEG_Image * calibImage4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b3ea9e5b69b2f628d2d56a632ce4afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3ea9e5b69b2f628d2d56a632ce4afc">&#9670;&nbsp;</a></span>calibP2d</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; vector&lt;cv::Point2f&gt; &gt; calibP2d</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a4773249b9051c5d539dd8c3d0620a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4773249b9051c5d539dd8c3d0620a2">&#9670;&nbsp;</a></span>calibP3d</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; vector&lt;cv::Point3f&gt; &gt; calibP3d</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4fd69b956ecebe41334003a818ddd0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4fd69b956ecebe41334003a818ddd0c">&#9670;&nbsp;</a></span>cameraError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cameraError = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab199b636b8584c105ca88654d0f7b740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab199b636b8584c105ca88654d0f7b740">&#9670;&nbsp;</a></span>cameraParams</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CameraParameters cameraParams</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b6dc691d75399d913cc72b807cd81bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b6dc691d75399d913cc72b807cd81bd">&#9670;&nbsp;</a></span>camp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CameraParameters camp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aceab7ed66cb44269ddc4e3885546cc61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceab7ed66cb44269ddc4e3885546cc61">&#9670;&nbsp;</a></span>checkAnsButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * checkAnsButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6adf7091da253b46d88907082d356c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6adf7091da253b46d88907082d356c21">&#9670;&nbsp;</a></span>checkLeftOc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Check_Button* checkLeftOc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91e5e2a4c8d5d632ae2d7587a8e40e23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91e5e2a4c8d5d632ae2d7587a8e40e23">&#9670;&nbsp;</a></span>checkRightOc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Check_Button * checkRightOc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b7a499451ab5dfb9e9809becea8cda6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7a499451ab5dfb9e9809becea8cda6">&#9670;&nbsp;</a></span>closeButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * closeButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33aa9368308842f63e7ec0a94776219a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33aa9368308842f63e7ec0a94776219a">&#9670;&nbsp;</a></span>econt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int econt =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4ab58934cbdd42f899a7c5db1d80065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ab58934cbdd42f899a7c5db1d80065">&#9670;&nbsp;</a></span>examAChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * examAChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90bcf57878f09df699e972a5948f14fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bcf57878f09df699e972a5948f14fb">&#9670;&nbsp;</a></span>examMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int examMode = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a939a656cfcd77c8809e2ba16bafded86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a939a656cfcd77c8809e2ba16bafded86">&#9670;&nbsp;</a></span>eye</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eye</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2e4ed2d83582a6b0cad76f82ca7722e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e4ed2d83582a6b0cad76f82ca7722e">&#9670;&nbsp;</a></span>eyeChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * eyeChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a447d42e42c46fd513aa948ae2389cf5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a447d42e42c46fd513aa948ae2389cf5f">&#9670;&nbsp;</a></span>eyeTest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eyeTest</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95c74e0414ed4981cab54f6bd8eedfe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c74e0414ed4981cab54f6bd8eedfe0">&#9670;&nbsp;</a></span>fillResizeFace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fillResizeFace = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a533e0b8677fd8fca72f8d414dae64dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533e0b8677fd8fca72f8d414dae64dfb">&#9670;&nbsp;</a></span>finishButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * finishButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a96cbb97f49f8d4e17a8ec681fe4195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a96cbb97f49f8d4e17a8ec681fe4195">&#9670;&nbsp;</a></span>flagCalibration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool flagCalibration = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a97a91c01a5f287f66dffd124d4c883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a97a91c01a5f287f66dffd124d4c883">&#9670;&nbsp;</a></span>helpButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * helpButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac38a7c39ba21d73440fea3db71ab3c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac38a7c39ba21d73440fea3db71ab3c9b">&#9670;&nbsp;</a></span>inputImage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mat inputImage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9f995fca15f7eff1b6275f605da60dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f995fca15f7eff1b6275f605da60dc">&#9670;&nbsp;</a></span>leftAChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * leftAChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a050cdca1dd1b031c09e37f64ee35cbc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a050cdca1dd1b031c09e37f64ee35cbc8">&#9670;&nbsp;</a></span>leftAChoice45</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int leftAChoice45 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6c5860ebc1d0ec0775417af5673d95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c5860ebc1d0ec0775417af5673d95a">&#9670;&nbsp;</a></span>leftAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int leftAngle = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a954cb2718cf2b8835c9652541a54ae45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a954cb2718cf2b8835c9652541a54ae45">&#9670;&nbsp;</a></span>leftChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice* leftChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Definición de la clase SimulatorWindow Determina la ventana principal de la aplicación que engloba el rostro humano, el visor de la cámara y los controles de usuario </p>
+
+</div>
+</div>
+<a id="a8bf4d1f28760700154a723eb3209352b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf4d1f28760700154a723eb3209352b">&#9670;&nbsp;</a></span>leftEyePath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int leftEyePath = <a class="el" href="_face_window_8hpp.html#a1291f416b069313021b519eea62d5bf1">NORMAL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb4d001f9febad0b38fb529d7389bf55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4d001f9febad0b38fb529d7389bf55">&#9670;&nbsp;</a></span>leftOccluder</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int leftOccluder = <a class="el" href="_face_window_8hpp.html#a31c2e0212158165e0e03cb03957c4336">TRANSPARENTE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9aa7365e3f0048f49008e6c3fc8786d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aa7365e3f0048f49008e6c3fc8786d5">&#9670;&nbsp;</a></span>leftOChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * leftOChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae55a183a5940215ce67a8740ec8639ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae55a183a5940215ce67a8740ec8639ae">&#9670;&nbsp;</a></span>markerAnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Point2f markerAnt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6608e9ecd4aafd1dbb048139044760b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6608e9ecd4aafd1dbb048139044760b3">&#9670;&nbsp;</a></span>markerButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * markerButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab37c0b8d9929e84569d5285ea833b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab37c0b8d9929e84569d5285ea833b94">&#9670;&nbsp;</a></span>markerChoosed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Marker markerChoosed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afcc46a6bb38a773b942a36250b88852c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc46a6bb38a773b942a36250b88852c">&#9670;&nbsp;</a></span>markerCm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsimulator_1_1_point3_d.html">Point3D</a> markerCm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf2d9b92561b0bb1336101ce7fd9f1c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf2d9b92561b0bb1336101ce7fd9f1c1">&#9670;&nbsp;</a></span>markerPx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsimulator_1_1_point3_d.html">Point3D</a> markerPx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92ad67aebaedfc71ae675626dc94b9de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92ad67aebaedfc71ae675626dc94b9de">&#9670;&nbsp;</a></span>noExisteTag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool noExisteTag = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e4dc17ab3515b06bdab83277d1d9715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e4dc17ab3515b06bdab83277d1d9715">&#9670;&nbsp;</a></span>patButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button* patButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad601bd7c170ad2ce7e898d23f256d9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad601bd7c170ad2ce7e898d23f256d9b3">&#9670;&nbsp;</a></span>patChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * patChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0a2581c8c0d843c7344eb1dc7694b6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0a2581c8c0d843c7344eb1dc7694b6e">&#9670;&nbsp;</a></span>path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int path</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62f05effc22c7545e7800c0d65052c35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62f05effc22c7545e7800c0d65052c35">&#9670;&nbsp;</a></span>patTest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int patTest</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7048b09eb1029755b7af818a5e9f14e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7048b09eb1029755b7af818a5e9f14e8">&#9670;&nbsp;</a></span>pop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Window* pop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfe66f867f31dfda99a33011cbb54ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe66f867f31dfda99a33011cbb54ce6">&#9670;&nbsp;</a></span>popupActive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool popupActive = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b9b044cf4020d0a9f2a7a55c04f0464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9b044cf4020d0a9f2a7a55c04f0464">&#9670;&nbsp;</a></span>righOChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * righOChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5415a22e37bb366e30e87c5c0cbfaadd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5415a22e37bb366e30e87c5c0cbfaadd">&#9670;&nbsp;</a></span>rightAChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * rightAChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9adc71fb00a3ccbd24fd6702ccf78eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9adc71fb00a3ccbd24fd6702ccf78eb3">&#9670;&nbsp;</a></span>rightAChoice45</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rightAChoice45 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a321274a5ed881d42bca0063d7473fd25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a321274a5ed881d42bca0063d7473fd25">&#9670;&nbsp;</a></span>rightAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rightAngle = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2063d65a386328b2f7c94de1dca4f4e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2063d65a386328b2f7c94de1dca4f4e0">&#9670;&nbsp;</a></span>rightChoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Choice * rightChoice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acde2515f15c7cb0deed30adf87846218"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acde2515f15c7cb0deed30adf87846218">&#9670;&nbsp;</a></span>rightEyePath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rightEyePath = <a class="el" href="_face_window_8hpp.html#a1291f416b069313021b519eea62d5bf1">NORMAL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc9c56f345defcebd9bb4cfeeb46beba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc9c56f345defcebd9bb4cfeeb46beba">&#9670;&nbsp;</a></span>rightOccluder</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rightOccluder = <a class="el" href="_face_window_8hpp.html#a31c2e0212158165e0e03cb03957c4336">TRANSPARENTE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c53f7ee11b4d663681608ce0296c672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c53f7ee11b4d663681608ce0296c672">&#9670;&nbsp;</a></span>rotAnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float rotAnt = 0.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb750c758333550f99d51e96511390a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb750c758333550f99d51e96511390a0">&#9670;&nbsp;</a></span>startButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Button * startButton</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c61f819f61d9de815044e9d3c4c7609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c61f819f61d9de815044e9d3c4c7609">&#9670;&nbsp;</a></span>theMarkerMapConfig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MarkerMap theMarkerMapConfig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9e2e1007d75127f2da0b0e12ac48057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e2e1007d75127f2da0b0e12ac48057">&#9670;&nbsp;</a></span>videoCapturer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VideoCapture videoCapturer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a999e72158a2dd2aa2fbced76cfdc93a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a999e72158a2dd2aa2fbced76cfdc93a2">&#9670;&nbsp;</a></span>winCalib</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fl_Window * winCalib</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Definición de la clase HelpDialog Representa la ventana de ayuda que muestra las instrucciones de uso de la aplicación </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
