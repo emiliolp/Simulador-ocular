@@ -6,10 +6,6 @@ var searchData=
   ['bclose',['bClose',['../classsimulator_1_1_help_dialog.html#ae51937d8dd940adcf3d5cf4842185a5f',1,'simulator::HelpDialog']]],
   ['bmarker',['bMarker',['../classsimulator_1_1_help_dialog.html#a822c1f2c496bf688a858f87c0469ea35',1,'simulator::HelpDialog']]],
   ['bn',['bn',['../classsimulator_1_1_type_f.html#afe51bfe6ebd45b16d1f85379cc4e35a3',1,'simulator::TypeF']]],
-  ['boxcalibra1',['boxCalibra1',['../_calib_window_8hpp.html#a7226254be47a0474fc6fd3ad7651ee52',1,'boxCalibra1():&#160;main.cpp'],['../main_8cpp.html#a7226254be47a0474fc6fd3ad7651ee52',1,'boxCalibra1():&#160;main.cpp']]],
-  ['boxcalibra2',['boxCalibra2',['../_calib_window_8hpp.html#abefbbec90678a5e84c814c2c975af843',1,'boxCalibra2():&#160;main.cpp'],['../main_8cpp.html#abefbbec90678a5e84c814c2c975af843',1,'boxCalibra2():&#160;main.cpp']]],
-  ['boxcalibra3',['boxCalibra3',['../_calib_window_8hpp.html#ad7a96a9745c008a20ac74818a01be510',1,'boxCalibra3():&#160;main.cpp'],['../main_8cpp.html#ad7a96a9745c008a20ac74818a01be510',1,'boxCalibra3():&#160;main.cpp']]],
-  ['boxcalibra4',['boxCalibra4',['../_calib_window_8hpp.html#aad2f6d378708579c45537cb61893f70b',1,'boxCalibra4():&#160;main.cpp'],['../main_8cpp.html#aad2f6d378708579c45537cb61893f70b',1,'boxCalibra4():&#160;main.cpp']]],
   ['brightback',['brightBack',['../classsimulator_1_1_cam_window.html#aba0ec56cbc8132bd64616b8374f9457b',1,'simulator::CamWindow']]],
   ['brightfirstlevel',['brightFirstLevel',['../classsimulator_1_1_cam_window.html#a99573265ff4cd27915b7e572ca20f097',1,'simulator::CamWindow']]]
 ];

@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['econt',['econt',['../main_8cpp.html#a33aa9368308842f63e7ec0a94776219a',1,'main.cpp']]],
-  ['endotropia',['ENDOTROPIA',['../_face_window_8hpp.html#ac3068057882199a2bad9435fd75b1537',1,'FaceWindow.hpp']]],
-  ['examachoice',['examAChoice',['../main_8cpp.html#ab4ab58934cbdd42f899a7c5db1d80065',1,'examAChoice():&#160;main.cpp'],['../_simulator_window_8hpp.html#ab4ab58934cbdd42f899a7c5db1d80065',1,'examAChoice():&#160;main.cpp']]],
-  ['exammode',['examMode',['../_face_window_8hpp.html#a90bcf57878f09df699e972a5948f14fb',1,'examMode():&#160;main.cpp'],['../main_8cpp.html#a90bcf57878f09df699e972a5948f14fb',1,'examMode():&#160;main.cpp']]],
-  ['exotropia',['EXOTROPIA',['../_face_window_8hpp.html#ab1594172ca27926a79f3dfc190b3291d',1,'FaceWindow.hpp']]],
-  ['eye',['eye',['../main_8cpp.html#a939a656cfcd77c8809e2ba16bafded86',1,'eye():&#160;main.cpp'],['../_simulator_window_8hpp.html#a939a656cfcd77c8809e2ba16bafded86',1,'eye():&#160;main.cpp']]],
-  ['eyechoice',['eyeChoice',['../main_8cpp.html#ab2e4ed2d83582a6b0cad76f82ca7722e',1,'eyeChoice():&#160;main.cpp'],['../_simulator_window_8hpp.html#ab2e4ed2d83582a6b0cad76f82ca7722e',1,'eyeChoice():&#160;main.cpp']]],
-  ['eyetest',['eyeTest',['../main_8cpp.html#a447d42e42c46fd513aa948ae2389cf5f',1,'eyeTest():&#160;main.cpp'],['../_simulator_window_8hpp.html#a447d42e42c46fd513aa948ae2389cf5f',1,'eyeTest():&#160;main.cpp']]]
+  ['facewindow',['FaceWindow',['../classsimulator_1_1_face_window.html',1,'FaceWindow'],['../classsimulator_1_1_face_window.html#aa3ae7fecd6254ddf53444582aae7208b',1,'simulator::FaceWindow::FaceWindow()']]],
+  ['figuregl',['figureGl',['../classsimulator_1_1_simulator_window.html#a728ea43b13ae3532c1b98262026517bd',1,'simulator::SimulatorWindow']]]
 ];

@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['patbutton',['patButton',['../main_8cpp.html#a9e4dc17ab3515b06bdab83277d1d9715',1,'patButton():&#160;main.cpp'],['../_simulator_window_8hpp.html#a9e4dc17ab3515b06bdab83277d1d9715',1,'patButton():&#160;main.cpp']]],
-  ['patchoice',['patChoice',['../main_8cpp.html#ad601bd7c170ad2ce7e898d23f256d9b3',1,'patChoice():&#160;main.cpp'],['../_simulator_window_8hpp.html#ad601bd7c170ad2ce7e898d23f256d9b3',1,'patChoice():&#160;main.cpp']]],
-  ['path',['path',['../main_8cpp.html#aa0a2581c8c0d843c7344eb1dc7694b6e',1,'path():&#160;main.cpp'],['../_simulator_window_8hpp.html#aa0a2581c8c0d843c7344eb1dc7694b6e',1,'path():&#160;main.cpp']]],
-  ['pattest',['patTest',['../main_8cpp.html#a62f05effc22c7545e7800c0d65052c35',1,'patTest():&#160;main.cpp'],['../_simulator_window_8hpp.html#a62f05effc22c7545e7800c0d65052c35',1,'patTest():&#160;main.cpp']]],
-  ['point3d',['Point3D',['../classsimulator_1_1_point3_d.html',1,'Point3D'],['../classsimulator_1_1_point3_d.html#a1e480e95c5ba53142b51a4082ebe8b8a',1,'simulator::Point3D::Point3D()']]],
-  ['point3d_2ecpp',['Point3D.cpp',['../_point3_d_8cpp.html',1,'']]],
-  ['point3d_2ehpp',['Point3D.hpp',['../_point3_d_8hpp.html',1,'']]],
-  ['pop',['pop',['../_face_window_8hpp.html#a7048b09eb1029755b7af818a5e9f14e8',1,'pop():&#160;main.cpp'],['../_help_dialog_8hpp.html#a944ef4d8a860b586ce27c31ce66274a8',1,'pop():&#160;main.cpp'],['../main_8cpp.html#a7048b09eb1029755b7af818a5e9f14e8',1,'pop():&#160;main.cpp'],['../_simulator_window_8hpp.html#a7048b09eb1029755b7af818a5e9f14e8',1,'pop():&#160;main.cpp']]],
-  ['popupactive',['popupActive',['../_face_window_8hpp.html#adfe66f867f31dfda99a33011cbb54ce6',1,'popupActive():&#160;main.cpp'],['../_help_dialog_8hpp.html#adfe66f867f31dfda99a33011cbb54ce6',1,'popupActive():&#160;main.cpp'],['../main_8cpp.html#adfe66f867f31dfda99a33011cbb54ce6',1,'popupActive():&#160;main.cpp']]]
+  ['textbuffer',['textBuffer',['../classsimulator_1_1_calib_window.html#a34e8e29bd79f1c2562c20c04d5430cb2',1,'simulator::CalibWindow::textBuffer()'],['../classsimulator_1_1_help_dialog.html#a34e8e29bd79f1c2562c20c04d5430cb2',1,'simulator::HelpDialog::textBuffer()']]],
+  ['translatecentre',['translateCentre',['../classsimulator_1_1_point3_d.html#ab0f1c4d8d4fd82b329082411a05244cd',1,'simulator::Point3D']]],
+  ['turnaxisx',['turnAxisX',['../classsimulator_1_1_point3_d.html#a9d688c8b3ab44a0a02116d7988031edd',1,'simulator::Point3D']]],
+  ['turnaxisy',['turnAxisY',['../classsimulator_1_1_point3_d.html#a1f737b55448551fb6e1205e814a59115',1,'simulator::Point3D']]],
+  ['typef',['TypeF',['../classsimulator_1_1_type_f.html',1,'TypeF'],['../classsimulator_1_1_type_f.html#aab93047e8a231bb12abe0e5e7ad6fa26',1,'simulator::TypeF::TypeF()']]],
+  ['typev',['TypeV',['../classsimulator_1_1_type_v.html',1,'TypeV'],['../classsimulator_1_1_type_v.html#afa6c7b1d86762f240a46344d5d3a3d84',1,'simulator::TypeV::TypeV()']]]
 ];
