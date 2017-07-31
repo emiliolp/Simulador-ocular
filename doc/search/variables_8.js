@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputimage',['inputImage',['../_calib_window_8hpp.html#ac38a7c39ba21d73440fea3db71ab3c9b',1,'inputImage():&#160;main.cpp'],['../_cam_window_8hpp.html#ac38a7c39ba21d73440fea3db71ab3c9b',1,'inputImage():&#160;main.cpp'],['../main_8cpp.html#ac38a7c39ba21d73440fea3db71ab3c9b',1,'inputImage():&#160;main.cpp']]]
+  ['stylebuffer',['styleBuffer',['../classsimulator_1_1_calib_window.html#ac190ea00cdf32b939f7ea79dd97eb133',1,'simulator::CalibWindow::styleBuffer()'],['../classsimulator_1_1_help_dialog.html#ac190ea00cdf32b939f7ea79dd97eb133',1,'simulator::HelpDialog::styleBuffer()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['helpbutton',['helpButton',['../main_8cpp.html#a6a97a91c01a5f287f66dffd124d4c883',1,'helpButton():&#160;main.cpp'],['../_simulator_window_8hpp.html#a6a97a91c01a5f287f66dffd124d4c883',1,'helpButton():&#160;main.cpp']]]
+  ['resizedimage',['resizedImage',['../classsimulator_1_1_cam_window.html#aadc104d181e1ead694b1184b74545c3f',1,'simulator::CamWindow']]]
 ];
